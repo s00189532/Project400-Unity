@@ -1,0 +1,21 @@
+TUTORIAL VIDEO LINK
+https://www.youtube.com/watch?v=Q7aHXn_LypI&ab_channel=IainMcManus
+
+create graphs/visual representations of behaviour trees and GOAP structures  maded for the project
+
+need to finish implementation AI code outside GOAP scripts to make use of GOAP scripts
+
+if multiple actions satisfy goal cost decides which is used
+
+change actions code to have system.type arrays instead of lsits if he doesnt change to lists in the video
+
+potentially clean up component screen on AI by creating scripts to manage addition of goals and actions so they are not
+added to the character individually as seperate scripts.
+
+as more actions and goals are made the planner does more calculations and performance will technically weaken
+but performance hit will still probably be very small
+
+GOAP planner from tutorial is added to every AI instead of being global
+
+tutorial uses monolithic approach where each goal is completed by one action instead of the microlithic approach
+where a goal can be completed by one or a set of actions such e.g(attack target goal = detect -> moveto -> attack)
