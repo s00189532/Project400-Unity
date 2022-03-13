@@ -1,4 +1,4 @@
-TUTORIAL VIDEO LINK
+GOAP TUTORIAL VIDEO LINK
 https://www.youtube.com/watch?v=Q7aHXn_LypI&ab_channel=IainMcManus
 
 create graphs/visual representations of behaviour trees and GOAP structures  maded for the project
@@ -19,3 +19,10 @@ GOAP planner from tutorial is added to every AI instead of being global
 
 tutorial uses monolithic approach where each goal is completed by one action instead of the microlithic approach
 where a goal can be completed by one or a set of actions such e.g(attack target goal = detect -> moveto -> attack)
+
+might need to add namespaces to GOAP and Behaviour Trees to seperate them and clean up code
+
+BEHAVIOUR TREE TUTORIAL VIDEO LINK
+https://www.youtube.com/watch?v=nKpM98I7PeM&ab_channel=TheKiwiCoder
+
+48:04 minutes in
