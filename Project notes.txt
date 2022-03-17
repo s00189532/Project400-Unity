@@ -25,4 +25,6 @@ might need to add namespaces to GOAP and Behaviour Trees to seperate them and cl
 BEHAVIOUR TREE TUTORIAL VIDEO LINK
 https://www.youtube.com/watch?v=nKpM98I7PeM&ab_channel=TheKiwiCoder
 
-48:04 minutes in
+FOLLOW UP TUTORIAL EXPANDING ON FIRST
+https://www.youtube.com/watch?v=jhB_GFgS6S0&ab_channel=TheKiwiCoder
+

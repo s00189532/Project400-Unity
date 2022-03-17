@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8726296242254073592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b2696ee87a72044940283011d0fd42, type: 3}
+  m_Name: CN_Sequence
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5b02ef6d331f4c64db8025639c08906b
+  position: {x: 167, y: 154}
+  children:
+  - {fileID: 2154319779355312422}
+  - {fileID: -8334321891928066043}
+  - {fileID: 8979827813749712185}
+  - {fileID: -2978560503258694569}
+  - {fileID: 205017618357279037}
+  - {fileID: 3064589066588725081}
+--- !u!114 &-8334321891928066043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae05215548f388741bc4aed2bbcaa268, type: 3}
+  m_Name: AN_Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 565a8d3902048374ea58c8294dffe798
+  position: {x: 442, y: 40}
+  duration: 1
+--- !u!114 &-2978560503258694569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae05215548f388741bc4aed2bbcaa268, type: 3}
+  m_Name: AN_Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1716e90ebcc6fe546bb700bcae89e0c4
+  position: {x: 442, y: 231}
+  duration: 1
+--- !u!114 &-1304462901372680124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bf932f0f5611e498ab5203f1234993, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 372021a9655bc3645a048866d81193fd
+  position: {x: -6, y: 154}
+  child: {fileID: -8726296242254073592}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8409032b1f8d39b4da285ccf380dc66b, type: 3}
+  m_Name: Test1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -1304462901372680124}
+  treeState: 0
+  nodes:
+  - {fileID: -8726296242254073592}
+  - {fileID: -1304462901372680124}
+  - {fileID: 205017618357279037}
+  - {fileID: 8979827813749712185}
+  - {fileID: 2154319779355312422}
+  - {fileID: -8334321891928066043}
+  - {fileID: 3064589066588725081}
+  - {fileID: -2978560503258694569}
+  - {fileID: 4471121860473084257}
+--- !u!114 &205017618357279037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a413c06c32684d46a6181b84f1a6841, type: 3}
+  m_Name: AN_DebugLog
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0b351a94676b76e43b90c296f3011062
+  position: {x: 442, y: 353}
+  message: Hello Again!
+--- !u!114 &2154319779355312422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a413c06c32684d46a6181b84f1a6841, type: 3}
+  m_Name: AN_DebugLog
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 70c93fc417cec8640ab39ce9a185d1e1
+  position: {x: 442, y: -37}
+  message: Hello World!
+--- !u!114 &3064589066588725081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae05215548f388741bc4aed2bbcaa268, type: 3}
+  m_Name: AN_Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bb440e373a1edc44d9c266e5442010df
+  position: {x: 442, y: 430}
+  duration: 1
+--- !u!114 &4471121860473084257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4438ddff7c31a0e4ba2143202191c15b, type: 3}
+  m_Name: DN_Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 70fa3fc67bf30024d9aaa17d1e10dec6
+  position: {x: 0, y: 0}
+  child: {fileID: 0}
+--- !u!114 &8979827813749712185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a413c06c32684d46a6181b84f1a6841, type: 3}
+  m_Name: AN_DebugLog
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e7f07327b63b130428cc0e091ec9e4f1
+  position: {x: 442, y: 154}
+  message: Hello There!

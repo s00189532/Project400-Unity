@@ -4,5 +4,12 @@ using UnityEngine;
 
 public abstract class DN_Base : Node_Base
 {
-    public Node_Base child;
+    [HideInInspector] public Node_Base child;
+
+    public override Node_Base Clone()
+    {
+        DN_Base node = Instantiate(this);
+        node.child = child.Clone();
+        return node;
+    }
 }

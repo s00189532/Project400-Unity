@@ -4,5 +4,4 @@ using UnityEngine;
 
 public abstract class AN_Base : Node_Base
 {
-
 }
