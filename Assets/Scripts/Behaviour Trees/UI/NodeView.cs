@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
+using UnityEditor;
 
 public class NodeView : Node
 {
@@ -13,7 +15,7 @@ public class NodeView : Node
     public Port input;
     public Port output;
 
-    public NodeView(Node_Base node)
+    public NodeView(Node_Base node) : base("Assets/Scripts/Behaviour Trees/UI/NodeView.uxml")
     {
         this.node = node;
         this.title = node.name;
@@ -24,21 +26,43 @@ public class NodeView : Node
 
         CreateInputPorts();
         CreateOutputPorts();
+
+        SetupClasses();
+    }
+
+    private void SetupClasses()
+    {
+        if (node is AN_Base)
+        {
+            AddToClassList("action");
+        }
+        else if (node is CN_Base)
+        {
+            AddToClassList("composite");
+        }
+        else if (node is DN_Base)
+        {
+            AddToClassList("decorator");
+        }
+        else if (node is RootNode)
+        {
+            AddToClassList("root");
+        }
     }
 
     private void CreateInputPorts()
     {
         if (node is AN_Base)
         {
-            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
         else if (node is CN_Base)
         {
-            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
         else if (node is DN_Base)
         {
-            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
         else if(node is RootNode)
         {
@@ -48,6 +72,7 @@ public class NodeView : Node
         if(input != null)
         {
             input.portName = "";
+            input.style.flexDirection = FlexDirection.Column;
             inputContainer.Add(input);
         }
     }
@@ -59,20 +84,21 @@ public class NodeView : Node
         }
         else if (node is CN_Base)
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
         }
         else if (node is DN_Base)
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
         } 
         else if (node is RootNode)
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
         }
 
         if (output != null)
         {
             output.portName = "";
+            output.style.flexDirection = FlexDirection.ColumnReverse;
             outputContainer.Add(output);
         }
     }
@@ -80,8 +106,10 @@ public class NodeView : Node
     public override void SetPosition(Rect newPos)
     {
         base.SetPosition(newPos);
+        Undo.RecordObject(node, "Behaviour Tree(SetPosition)");
         node.position.x = newPos.xMin;
         node.position.y = newPos.yMin;
+        EditorUtility.SetDirty(node);
     }
 
     public override void OnSelected()
