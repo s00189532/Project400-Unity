@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5060566949460230312
+--- !u!114 &-9008786323132193792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: b3acdb7561895a54483b8bd2dd2ec21f
-  position: {x: 0, y: 92}
-  child: {fileID: 813938222271984385}
---- !u!114 &-3835695921382158852
+  guid: 92ec0f0a342a1cd4b907e5a927b1b750
+  position: {x: 576, y: 197}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: Repeats the sequence below
+  child: {fileID: 2976689346489854449}
+--- !u!114 &-5561209591913322013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,10 +35,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 0efb56aa2b5f12144a3f5a9ae706c77b
-  position: {x: 0, y: -11}
-  child: {fileID: -5060566949460230312}
---- !u!114 &-484914174679332720
+  guid: 33e798737cf199d49ad1331c45abc9bd
+  position: {x: 575.68, y: 31.959991}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: Start of Tree
+  child: {fileID: -9008786323132193792}
+--- !u!114 &-1836318633383444174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,8 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 418edb33781bd09438165c9af0c8fa89
-  position: {x: 105, y: 329}
+  guid: 4ab52673a4f04ba4788c6f0b8dfd278b
+  position: {x: 736, y: 493}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: "Makes you wait for another \nhello"
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -63,34 +75,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8409032b1f8d39b4da285ccf380dc66b, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  rootNode: {fileID: -3835695921382158852}
+  rootNode: {fileID: -5561209591913322013}
   treeState: 0
   nodes:
-  - {fileID: -3835695921382158852}
-  - {fileID: -5060566949460230312}
-  - {fileID: 813938222271984385}
-  - {fileID: -484914174679332720}
-  - {fileID: 4373389853987213720}
---- !u!114 &813938222271984385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b2696ee87a72044940283011d0fd42, type: 3}
-  m_Name: CN_Sequence
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 8a6a6c1caee7a204d8ffb93a507aab2b
-  position: {x: 0, y: 194}
-  children:
-  - {fileID: -484914174679332720}
-  - {fileID: 4373389853987213720}
---- !u!114 &4373389853987213720
+  - {fileID: -5561209591913322013}
+  - {fileID: 2976689346489854449}
+  - {fileID: -9008786323132193792}
+  - {fileID: 1141565815054439537}
+  - {fileID: -1836318633383444174}
+  blackboard:
+    moveToPosition: {x: 5, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+--- !u!114 &1141565815054439537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,6 +100,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 59f37809f7783284280b20c6f76e245e
-  position: {x: -116, y: 329}
+  guid: a9dcf7ef28de3ac419adbec48a25f8c5
+  position: {x: 426, y: 493}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 'Tells you hello
+
+'
   message: Hello
+--- !u!114 &2976689346489854449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b2696ee87a72044940283011d0fd42, type: 3}
+  m_Name: CN_Sequence
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6918269940846f14285d71eb8b603903
+  position: {x: 576, y: 355}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: Executes children in sequence
+  children:
+  - {fileID: 1141565815054439537}
+  - {fileID: -1836318633383444174}
+  - {fileID: -1836318633383444174}

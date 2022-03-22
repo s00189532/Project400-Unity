@@ -18,6 +18,10 @@ public abstract class Node_Base : ScriptableObject
     [HideInInspector] public string guid;
     [HideInInspector] public Vector2 position;
 
+    [HideInInspector] public BlackBoard blackboard;
+
+    [TextArea] public string description;
+
     public State Update()
     {
         if (!started)

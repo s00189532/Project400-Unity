@@ -19,7 +19,7 @@ public class AN_DebugLog : AN_Base
 
     protected override State OnUpdate()
     {
-        Debug.Log("OnUpdate : " + message);
+        Debug.Log("OnUpdate : " + blackboard.moveToPosition);
         return State.Success;
     }
 }

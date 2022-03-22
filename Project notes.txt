@@ -28,4 +28,11 @@ https://www.youtube.com/watch?v=nKpM98I7PeM&ab_channel=TheKiwiCoder
 FOLLOW UP TUTORIAL EXPANDING ON FIRST
 https://www.youtube.com/watch?v=jhB_GFgS6S0&ab_channel=TheKiwiCoder
 
-26:04
+
+at 45mins used custom ai script  to add values to blackboard.
+need to add once AI is made.
+-Node_Base
+-BehaviourTree
+
+
+null reference error appears looking for tree object in behaviour tree editor when editor is open but tree is not selected.

@@ -16,6 +16,9 @@ MonoBehaviour:
   started: 0
   guid: 33e798737cf199d49ad1331c45abc9bd
   position: {x: 0, y: 0}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
   child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -27,9 +30,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8409032b1f8d39b4da285ccf380dc66b, type: 3}
-  m_Name: Test2
+  m_Name: Test 1
   m_EditorClassIdentifier: 
   rootNode: {fileID: -5561209591913322013}
   treeState: 0
   nodes:
   - {fileID: -5561209591913322013}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}

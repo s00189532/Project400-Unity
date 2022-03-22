@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using UnityEditor;
+using UnityEditor.UIElements;
 
 public class NodeView : Node
 {
@@ -28,6 +29,10 @@ public class NodeView : Node
         CreateOutputPorts();
 
         SetupClasses();
+
+        Label descriptionLabel = this.Q<Label>("description");
+        descriptionLabel.bindingPath = "description";
+        descriptionLabel.Bind(new SerializedObject(node));
     }
 
     private void SetupClasses()
@@ -64,12 +69,12 @@ public class NodeView : Node
         {
             input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
-        else if(node is RootNode)
+        else if (node is RootNode)
         {
 
         }
 
-        if(input != null)
+        if (input != null)
         {
             input.portName = "";
             input.style.flexDirection = FlexDirection.Column;
@@ -89,7 +94,7 @@ public class NodeView : Node
         else if (node is DN_Base)
         {
             output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
-        } 
+        }
         else if (node is RootNode)
         {
             output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
@@ -116,9 +121,53 @@ public class NodeView : Node
     {
         base.OnSelected();
 
-        if(OnNodeSelected != null)
+        if (OnNodeSelected != null)
         {
             OnNodeSelected.Invoke(this);
+        }
+    }
+
+    public void SortChildren()
+    {
+        CN_Base composite = node as CN_Base;
+        if (composite)
+        {
+            composite.children.Sort(SortByHorizontalPosition);
+        }
+    }
+
+    private int SortByHorizontalPosition(Node_Base left, Node_Base right)
+    {
+        return left.position.x < right.position.x ? -1 : 1;
+    }
+
+    public void UpdateState()
+    {
+        //removes from all class lists to prevent being assigned to two at once
+        RemoveFromClassList("running");
+        RemoveFromClassList("failure");
+        RemoveFromClassList("success");
+
+        if (Application.isPlaying)
+        {
+            switch (node.state)
+            {
+                case Node_Base.State.Running:
+                    //checks to see if node started as nodes default state is running so this can trigger when the node has not actually started
+                    if (node.started)
+                    {
+                        AddToClassList("running");
+                    }
+                    break;
+                case Node_Base.State.Failure:
+                    AddToClassList("failure");
+                    break;
+                case Node_Base.State.Success:
+                    AddToClassList("success");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ public class BehaviourTree : ScriptableObject
 
     public List<Node_Base> nodes = new List<Node_Base>();
 
+    public BlackBoard blackboard = new BlackBoard();
+
     //when root node state is not running stop updating it
     public Node_Base.State Update()
     {
@@ -32,7 +34,11 @@ public class BehaviourTree : ScriptableObject
 
         nodes.Add(node);
 
-        AssetDatabase.AddObjectToAsset(node, this);
+        if (!Application.isPlaying)
+        {
+            AssetDatabase.AddObjectToAsset(node, this);
+        }
+
         Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (CreateNode)");
         AssetDatabase.SaveAssets();
 
@@ -60,7 +66,7 @@ public class BehaviourTree : ScriptableObject
         }
 
         RootNode rootNode = parent as RootNode;
-        if(rootNode)
+        if (rootNode)
         {
             Undo.RecordObject(rootNode, "Behaviour Tree (AddChild)");
             rootNode.child = child;
@@ -124,10 +130,39 @@ public class BehaviourTree : ScriptableObject
         return children;
     }
 
+    public void Traverse(Node_Base node, System.Action<Node_Base> visiter)
+    {
+        if (node)
+        {
+            visiter.Invoke(node);
+            var children = GetChildren(node);
+
+            //Depth first traverse through children nodes
+            children.ForEach((n) => Traverse(n, visiter));
+        }
+    }
+
+    //Creates clones of a behaviour tree so gameobjects using the tree don't use the same tree but use clones of it instead
     public BehaviourTree Clone()
     {
         BehaviourTree tree = Instantiate(this);
         tree.rootNode = tree.rootNode.Clone();
+        tree.nodes = new List<Node_Base>();
+
+        //Traverses through nodes of the tree starting at the root node and adds them to the trees list of nodes
+        Traverse(tree.rootNode, (n) =>
+        {
+            tree.nodes.Add(n);
+        });
+
         return tree;
+    }
+
+    public void Bind()
+    {
+        Traverse(rootNode, node =>
+        {
+            node.blackboard = blackboard;
+        });
     }
 }
