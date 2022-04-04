@@ -603,10 +603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI_Worker (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6564766756788836479, guid: c4342c2a1918da54cb235531bc2a2172, type: 3}
-      propertyPath: m_AutoRepath
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4342c2a1918da54cb235531bc2a2172, type: 3}
 --- !u!850595691 &620324709
@@ -1820,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 17316673424192752, guid: 30b5753943ad2d44aaa2131f401716e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 17316673424192752, guid: 30b5753943ad2d44aaa2131f401716e9, type: 3}
       propertyPath: m_LocalPosition.y

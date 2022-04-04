@@ -30,7 +30,6 @@ public class AN_ToolCheck : AN_Base
 
     protected override State OnUpdate()
     {
-        //Debug.Log(blackboard.moveToPosition);
         return State.Success;
     }
 
