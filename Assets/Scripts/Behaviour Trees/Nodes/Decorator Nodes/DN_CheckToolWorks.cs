@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DN_CheckToolDurability : DN_Base
+public class DN_CheckToolWorks : DN_Base
 {
     protected override void OnStart()
     {
@@ -16,12 +16,12 @@ public class DN_CheckToolDurability : DN_Base
 
     protected override State OnUpdate()
     {
-        if (agent.worker.ToolDurability <= 0)
-            return State.Failure;
-        else
+        if (agent.worker.ToolDurability > 0)
         {
             child.Update();
             return State.Success;
         }
+        else
+            return State.Failure;
     }
 }

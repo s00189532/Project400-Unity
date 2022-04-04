@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AN_PerformAction : AN_Base
+public class AN_PerformWorkAction : AN_Base
 {
     AI_Worker worker;
 
@@ -51,5 +51,8 @@ public class AN_PerformAction : AN_Base
             worker.IronCollected++;
         else
             worker.WoodCollected++;
+
+        if (worker.ToolDurability <= 0)
+            worker.HasTool = false;
     }
 }

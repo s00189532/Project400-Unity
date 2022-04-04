@@ -11,12 +11,16 @@ public class AN_ToolCheck : AN_Base
 
     protected override void OnStart()
     {
+        Debug.Log("Tool Check");
+
         worker = agent.worker;
         wood = worker.woodPos;
         iron = worker.ironPos;
 
         if (worker.HasTool)
-            AssignPosition();
+            AssignWorkPosition();
+        else
+            AssignStoragePosition();
     }
 
     protected override void OnStop()
@@ -26,10 +30,11 @@ public class AN_ToolCheck : AN_Base
 
     protected override State OnUpdate()
     {
+        //Debug.Log(blackboard.moveToPosition);
         return State.Success;
     }
 
-    void AssignPosition()
+    void AssignWorkPosition()
     {
         switch (worker.role)
         {
@@ -45,4 +50,22 @@ public class AN_ToolCheck : AN_Base
                 break;
         }
     }
+
+    void AssignStoragePosition()
+    {
+        switch (worker.role)
+        {
+            case AI_Worker.AIRole.Miner:
+                blackboard.moveToPosition = worker.storage.IronStoragePosition.transform.position;
+                break;
+            case AI_Worker.AIRole.Lumberjack:
+                blackboard.moveToPosition = worker.storage.WoodStoragePosition.transform.position;
+                break;
+            case AI_Worker.AIRole.BlackSmith:
+                break;
+            default:
+                break;
+        }
+    }
+
 }

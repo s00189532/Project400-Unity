@@ -36,3 +36,4 @@ need to add once AI is made.
 
 
 null reference error appears looking for tree object in behaviour tree editor when editor is open but tree is not selected.
+(doesnt break anything just complains about tree not being visible until i select a tree to display)

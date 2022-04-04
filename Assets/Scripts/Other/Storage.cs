@@ -7,7 +7,8 @@ public class Storage : MonoBehaviour
     float StoredIron = 0;
     float StoredWood = 0;
 
-    public GameObject StoragePosition;
+    public GameObject WoodStoragePosition;
+    public GameObject IronStoragePosition;
 
     public void StoreIron(float amount)
     {

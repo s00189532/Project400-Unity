@@ -7,7 +7,7 @@ public class AN_MoveToPosition : AN_Base
     protected override void OnStart()
     {
         agent.navMeshAgent.SetDestination(blackboard.moveToPosition);
-
+        Debug.Log(agent.navMeshAgent.destination);
         
     }
 

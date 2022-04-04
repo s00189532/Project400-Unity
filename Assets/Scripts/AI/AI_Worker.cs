@@ -19,6 +19,9 @@ public class AI_Worker: MonoBehaviour
     public float IronCollected = 0;
     public float WoodCollected = 0;
 
+    public GameObject ToolPosition;
+    public GameObject TestTool;
+
     [HideInInspector] public Storage storage;
     [HideInInspector] public Anvil anvil;
 
@@ -27,49 +30,14 @@ public class AI_Worker: MonoBehaviour
 
     private void Start()
     {
+        GameObject go = Instantiate(TestTool, ToolPosition.transform.position, Quaternion.identity);
+        go.transform.parent = ToolPosition.transform;
+        ToolPosition.transform.Rotate(30, 0, 0);
+
         storage = GameObject.FindGameObjectWithTag("Storage").GetComponent<Storage>();
         anvil = GameObject.FindGameObjectWithTag("Anvil").GetComponent<Anvil>();
 
         woodPos = GameObject.FindGameObjectWithTag("WoodPosition").transform.position;
         ironPos = GameObject.FindGameObjectWithTag("IronPosition").transform.position;
-    }
-
-    public void HarvestResource()
-    {
-        UseTool();
-
-        if(role == AIRole.Miner)
-        {
-            IronCollected++;
-        }
-        else if(role == AIRole.Lumberjack)
-        {
-            WoodCollected++;
-        }
-    }
-
-    public void DepositResources()
-    {
-        storage.StoreIron(IronCollected);
-        IronCollected = 0;
-
-        storage.StoreWood(WoodCollected);
-        WoodCollected = 0;
-    }
-
-    void UseTool()
-    {
-        ToolDurability -= 10;
-
-        if (ToolDurability <= 0)
-        {
-            HasTool = false;
-        }
-    }
-
-    public void GetTool()
-    {
-        HasTool = true;
-        ToolDurability = 100;
     }
 }
