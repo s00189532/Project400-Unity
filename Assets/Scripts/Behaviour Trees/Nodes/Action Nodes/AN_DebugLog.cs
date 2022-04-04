@@ -14,12 +14,11 @@ public class AN_DebugLog : AN_Base
 
     protected override void OnStop()
     {
-        Debug.Log("OnStop : " + message);
+
     }
 
     protected override State OnUpdate()
     {
-        Debug.Log("OnUpdate : " + blackboard.moveToPosition);
         return State.Success;
     }
 }

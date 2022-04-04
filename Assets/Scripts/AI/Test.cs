@@ -8,14 +8,17 @@ public class Test : MonoBehaviour
     NavMeshAgent agent;
     Vector3 moveToPosition;
 
+    public GameObject pos;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
         PickRandomPosition();
+        agent.SetDestination(pos.transform.position);
     }
 
-    void Update()
+    /*void Update()
     {
         if (Vector3.Distance(transform.position, moveToPosition) <= 0.1f)
         {
@@ -23,7 +26,7 @@ public class Test : MonoBehaviour
         }
         else
             Debug.Log("moving");
-    }
+    }*/
 
     public void MoveTo(Vector3 position)
     {
@@ -33,8 +36,8 @@ public class Test : MonoBehaviour
 
     void PickRandomPosition()
     {
-        int posX = Random.Range(-200, 200);
-        int posZ = Random.Range(-200, 200);
+        int posX = Random.Range(-100, 100);
+        int posZ = Random.Range(-100, 100);
 
         Vector3 pos = new Vector3(posX, transform.position.y, posZ);
 

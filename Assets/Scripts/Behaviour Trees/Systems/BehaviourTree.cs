@@ -158,10 +158,11 @@ public class BehaviourTree : ScriptableObject
         return tree;
     }
 
-    public void Bind()
+    public void Bind(AI_Agent agent)
     {
         Traverse(rootNode, node =>
         {
+            node.agent = agent;
             node.blackboard = blackboard;
         });
     }

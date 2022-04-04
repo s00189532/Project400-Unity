@@ -19,6 +19,7 @@ public abstract class Node_Base : ScriptableObject
     [HideInInspector] public Vector2 position;
 
     [HideInInspector] public BlackBoard blackboard;
+    [HideInInspector] public AI_Agent agent;
 
     [TextArea] public string description;
 

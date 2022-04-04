@@ -9,7 +9,7 @@ public class BehaviourTreeController : MonoBehaviour
     private void Start()
     {
         tree = tree.Clone();
-        tree.Bind();
+        tree.Bind(this.gameObject.GetComponent<AI_Agent>());
     }
 
     private void Update()

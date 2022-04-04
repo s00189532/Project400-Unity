@@ -18,7 +18,7 @@ MonoBehaviour:
   position: {x: 576, y: 197}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
+  agent: {fileID: 0}
   description: Repeats the sequence below
   child: {fileID: 2976689346489854449}
 --- !u!114 &-5561209591913322013
@@ -39,10 +39,10 @@ MonoBehaviour:
   position: {x: 575.68, y: 31.959991}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
+  agent: {fileID: 0}
   description: Start of Tree
   child: {fileID: -9008786323132193792}
---- !u!114 &-1836318633383444174
+--- !u!114 &-4425126736693373742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,18 +51,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae05215548f388741bc4aed2bbcaa268, type: 3}
-  m_Name: AN_Wait
+  m_Script: {fileID: 11500000, guid: a4b2696ee87a72044940283011d0fd42, type: 3}
+  m_Name: CN_Sequence
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 4ab52673a4f04ba4788c6f0b8dfd278b
-  position: {x: 736, y: 493}
+  guid: 6e48abf23bb038b479610e46d97e6645
+  position: {x: 651, y: 662}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-  description: "Makes you wait for another \nhello"
-  duration: 1
+  agent: {fileID: 0}
+  description: 
+  children:
+  - {fileID: -1251133633322373882}
+  - {fileID: 5816415559412750584}
+--- !u!114 &-1251133633322373882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497a2864fe8419746ad13353885dd897, type: 3}
+  m_Name: AN_Test
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 88c06c4d9e42fea468c41704998501f7
+  position: {x: 546, y: 783.52}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  description: 
+  testBool: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,12 +104,14 @@ MonoBehaviour:
   - {fileID: -5561209591913322013}
   - {fileID: 2976689346489854449}
   - {fileID: -9008786323132193792}
-  - {fileID: 1141565815054439537}
-  - {fileID: -1836318633383444174}
+  - {fileID: 2966365558751268931}
+  - {fileID: 4621200610676417207}
+  - {fileID: 5816415559412750584}
+  - {fileID: -1251133633322373882}
+  - {fileID: -4425126736693373742}
   blackboard:
     moveToPosition: {x: 5, y: 0, z: 0}
-    moveToObject: {fileID: 0}
---- !u!114 &1141565815054439537
+--- !u!114 &2966365558751268931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,15 +125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: a9dcf7ef28de3ac419adbec48a25f8c5
-  position: {x: 426, y: 493}
+  guid: 5ce2f16268c5248469ed95ff71c842f1
+  position: {x: 410.4, y: 532.68}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-  description: 'Tells you hello
-
-'
-  message: Hello
+  agent: {fileID: 0}
+  description: 
+  message: 1
 --- !u!114 &2976689346489854449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,9 +150,50 @@ MonoBehaviour:
   position: {x: 576, y: 355}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
+  agent: {fileID: 0}
   description: Executes children in sequence
   children:
-  - {fileID: 1141565815054439537}
-  - {fileID: -1836318633383444174}
-  - {fileID: -1836318633383444174}
+  - {fileID: 2966365558751268931}
+  - {fileID: 4621200610676417207}
+--- !u!114 &4621200610676417207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4438ddff7c31a0e4ba2143202191c15b, type: 3}
+  m_Name: DN_Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3882542048e037c418b5fcbf8de58c44
+  position: {x: 651, y: 533}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  description: 
+  child: {fileID: -4425126736693373742}
+--- !u!114 &5816415559412750584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a413c06c32684d46a6181b84f1a6841, type: 3}
+  m_Name: AN_DebugLog
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d3009c95bd1733d41932edf22929d8e7
+  position: {x: 744, y: 784}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  description: 
+  message: 2
