@@ -7,11 +7,13 @@ public class AI_Agent : MonoBehaviour
 {
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public AI_Worker worker;
+    [HideInInspector] public AI_Blacksmith blacksmith;
 
     void Start()
     {
         TryGetComponent(out navMeshAgent);
         TryGetComponent(out worker);
+        TryGetComponent(out blacksmith);
     }
 
 }

@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AN_PerformWorkAction : AN_Base
+public class AN_GetTool : AN_Base
 {
     AI_Worker worker;
+    ToolStation station;
 
     protected override void OnStart()
     {
         worker = agent.worker;
 
-        RoleCheck();
+        GetStation();
     }
 
     protected override void OnStop()
@@ -20,39 +21,42 @@ public class AN_PerformWorkAction : AN_Base
 
     protected override State OnUpdate()
     {
-        if (worker.ToolDurability <= 0)
-            return State.Failure;
-        else
+        if(CheckStation())
+        {
             return State.Success;
+        }
+        else
+        {
+            return State.Running;
+        }
     }
 
-    void RoleCheck()
+    void GetStation()
     {
         switch (worker.role)
         {
             case AI_Worker.AIRole.Miner:
-                HarvestResource(true);
+                station = worker.storage.PickaxeStation;
                 break;
             case AI_Worker.AIRole.Lumberjack:
-                HarvestResource(false);
-                break;
-            case AI_Worker.AIRole.BlackSmith:
+                station = worker.storage.AxeStation;
                 break;
             default:
                 break;
         }
     }
 
-    void HarvestResource(bool iron)
+    bool CheckStation()
     {
-        worker.ToolDurability -= 10;
-
-        if (iron)
-            worker.IronCollected++;
+        if(station.HasTool)
+        {
+            worker.ShowTool();
+            station.DestroyTool();
+            return true;
+        }
         else
-            worker.WoodCollected++;
-
-        if (worker.ToolDurability <= 0)
-            worker.HasTool = false;
+        {
+            return false;
+        }
     }
 }

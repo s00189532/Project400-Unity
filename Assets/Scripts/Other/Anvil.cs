@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Anvil : MonoBehaviour
 {
-    public GameObject QueuePosition;
     public GameObject BlacksmithPosition;
 }

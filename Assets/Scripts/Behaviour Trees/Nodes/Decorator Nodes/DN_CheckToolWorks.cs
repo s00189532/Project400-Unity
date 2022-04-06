@@ -16,10 +16,10 @@ public class DN_CheckToolWorks : DN_Base
 
     protected override State OnUpdate()
     {
-        if (agent.worker.ToolDurability > 0)
+        if (agent.worker.HasTool)
         {
             child.Update();
-            return State.Success;
+            return State.Running;
         }
         else
             return State.Failure;

@@ -17,8 +17,6 @@ public class DN_Repeat : DN_Base
 
     protected override State OnUpdate()
     {
-        child.Update();
-
         if (child.Update() == State.Failure)
             return State.Success;
 

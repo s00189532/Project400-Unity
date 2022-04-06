@@ -7,7 +7,7 @@ public class AN_MoveToPosition : AN_Base
     protected override void OnStart()
     {
         agent.navMeshAgent.SetDestination(blackboard.moveToPosition);
-        
+        Debug.Log(blackboard.moveToPosition);
     }
 
     protected override void OnStop()
@@ -17,7 +17,7 @@ public class AN_MoveToPosition : AN_Base
 
     protected override State OnUpdate()
     {
-        Vector3 distanceToTarget = agent.worker.transform.position - blackboard.moveToPosition;
+        Vector3 distanceToTarget = agent.transform.position - blackboard.moveToPosition;
         distanceToTarget.y = 0;
 
         if (distanceToTarget.magnitude <= 0.1f)

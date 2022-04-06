@@ -9,7 +9,6 @@ public class AI_Worker : MonoBehaviour
     {
         Miner,
         Lumberjack,
-        BlackSmith,
     }
 
     public AIRole role = AIRole.Miner;
@@ -25,10 +24,8 @@ public class AI_Worker : MonoBehaviour
 
     public GameObject AxePrefab;
     public GameObject PickaxePrefab;
-    public GameObject HammerPrefab;
 
     [HideInInspector] public Storage storage;
-    [HideInInspector] public Anvil anvil;
 
     [HideInInspector] public Vector3 woodPos;
     [HideInInspector] public Vector3 ironPos;
@@ -38,7 +35,6 @@ public class AI_Worker : MonoBehaviour
         AssignTool();
 
         storage = GameObject.FindGameObjectWithTag("Storage").GetComponent<Storage>();
-        anvil = GameObject.FindGameObjectWithTag("Anvil").GetComponent<Anvil>();
 
         woodPos = GameObject.FindGameObjectWithTag("WoodPosition").transform.position;
         ironPos = GameObject.FindGameObjectWithTag("IronPosition").transform.position;
@@ -54,9 +50,6 @@ public class AI_Worker : MonoBehaviour
             case AIRole.Lumberjack:
                 Tool = Instantiate(AxePrefab, ToolPosition.transform.position, Quaternion.identity);
                 break;
-            case AIRole.BlackSmith:
-                Tool = Instantiate(HammerPrefab, ToolPosition.transform.position, Quaternion.identity);
-                break;
             default:
                 break;
         }
@@ -70,12 +63,16 @@ public class AI_Worker : MonoBehaviour
     public void HideTool()
     {
         if (Tool != null)
-            Tool.GetComponent<MeshRenderer>().enabled = false;
+        {
+            HasTool = false;
+            Destroy(Tool);
+        }
     }
 
     public void ShowTool()
     {
-        if (Tool != null)
-            Tool.GetComponent<MeshRenderer>().enabled = true;
+        ToolDurability = 100;
+        HasTool = true;
+        AssignTool();
     }
 }

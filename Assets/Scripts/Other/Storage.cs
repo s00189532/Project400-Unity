@@ -10,6 +10,9 @@ public class Storage : MonoBehaviour
     public GameObject WoodStoragePosition;
     public GameObject IronStoragePosition;
 
+    public ToolStation PickaxeStation;
+    public ToolStation AxeStation;
+
     public void StoreIron(float amount)
     {
         StoredIron += amount;
@@ -30,5 +33,15 @@ public class Storage : MonoBehaviour
     {
         if (StoredWood >= amount)
             StoredWood -= amount;
+    }
+
+    public float GetIron()
+    {
+        return StoredIron;
+    }
+    
+    public float GetWood()
+    {
+        return StoredWood;
     }
 }
