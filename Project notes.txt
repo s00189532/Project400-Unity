@@ -37,3 +37,10 @@ need to add once AI is made.
 
 null reference error appears looking for tree object in behaviour tree editor when editor is open but tree is not selected.
 (doesnt break anything just complains about tree not being visible until i select a tree to display)
+
+
+REPORT TITLE PAGE IDEA
+image split in two between GOAP and BT with a big VS in the middle.
+One side will have big GOAP title at top with a faded image on a colour background related to GOAP like a connected plan of actions
+OTher side will have big BT title at top with a faded image on a colour background of a behaviour tree
+There will be a third side at the bottom with a third colour background showing text info of the project
