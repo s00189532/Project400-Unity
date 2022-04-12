@@ -17,7 +17,7 @@ but performance hit will still probably be very small
 
 GOAP planner from tutorial is added to every AI instead of being global
 
-tutorial uses monolithic approach where each goal is completed by one action instead of the microlithic approach
+tutorial uses monolithic approach where each goal is completed by one big action instead of the microlithic approach
 where a goal can be completed by one or a set of actions such e.g(attack target goal = detect -> moveto -> attack)
 
 might need to add namespaces to GOAP and Behaviour Trees to seperate them and clean up code
@@ -44,3 +44,7 @@ image split in two between GOAP and BT with a big VS in the middle.
 One side will have big GOAP title at top with a faded image on a colour background related to GOAP like a connected plan of actions
 OTher side will have big BT title at top with a faded image on a colour background of a behaviour tree
 There will be a third side at the bottom with a third colour background showing text info of the project
+
+
+discuss microlithic and monolithic GOAP in report
+

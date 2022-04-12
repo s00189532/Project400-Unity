@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Action_Base : MonoBehaviour
 {
+    protected AI_Agent Agent;
     protected Goal_Base LinkedGoal;
+
+    private void Awake()
+    {
+        Agent = GetComponent<AI_Agent>();
+    }
 
     //gets the goals that an action can accomplish
     public virtual List<System.Type> GetSupportedGoals()

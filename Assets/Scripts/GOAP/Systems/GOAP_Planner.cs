@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOAPPlanner : MonoBehaviour
+public class GOAP_Planner : MonoBehaviour
 {
     Goal_Base[] Goals;
     Action_Base[] Actions;
@@ -66,6 +66,8 @@ public class GOAPPlanner : MonoBehaviour
             ActiveGoal = bestGoal;
             ActiveAction = bestAction;
 
+            Debug.Log(ActiveGoal + " - " + ActiveAction);
+
             //if assigned they are not null (bestAction and bestGoal are not null when assigned to them are not null) activate them
             if (ActiveGoal != null)
                 ActiveGoal.OnGoalActivated(ActiveAction);
@@ -84,6 +86,8 @@ public class GOAPPlanner : MonoBehaviour
                 // reassign current action to new bestAction
                 ActiveAction = bestAction;
 
+                Debug.Log(ActiveGoal + " - " + ActiveAction);
+
                 // activate new action
                 ActiveAction.OnActivated(ActiveGoal);
             }
@@ -98,6 +102,8 @@ public class GOAPPlanner : MonoBehaviour
             // reassign the current goal and action to new bestGoal and bestAction
             ActiveGoal = bestGoal;
             ActiveAction = bestAction;
+
+            Debug.Log(ActiveGoal + " - " + ActiveAction);
 
             //if the assignments are not null activate them
             if (ActiveGoal != null)

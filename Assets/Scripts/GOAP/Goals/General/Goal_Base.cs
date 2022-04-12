@@ -14,7 +14,13 @@ public interface IGoal
 
 public class Goal_Base : MonoBehaviour, IGoal
 {
+    protected AI_Agent Agent;
     protected Action_Base LinkedAction;
+
+    void Awake()
+    {
+        Agent = GetComponent<AI_Agent>();
+    }
 
     void Update()
     {

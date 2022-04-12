@@ -62,11 +62,10 @@ public class AI_Worker : MonoBehaviour
 
     public void HideTool()
     {
+        HasTool = false;
+
         if (Tool != null)
-        {
-            HasTool = false;
             Destroy(Tool);
-        }
     }
 
     public void ShowTool()
