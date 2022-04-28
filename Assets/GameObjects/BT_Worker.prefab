@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   role: 0
   HasTool: 1
-  ToolDurability: 100
+  ToolDurability: 30
   IronCollected: 0
   WoodCollected: 0
   Tool: {fileID: 0}
